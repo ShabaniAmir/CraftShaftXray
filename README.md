@@ -33,6 +33,7 @@ Every time a player breaks a stone block or a diamond ore, CraftShaft X-Ray reco
 ## Changes for next update:
 - [ ] Ignore players in creative
 - [ ] Have settings for which blocks are most important, not just diamond_ore
+
 *Something you want to see here? contact me or submit a ticket*
 
 ## Questions? Suggestions? Let's talk
