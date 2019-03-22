@@ -1,0 +1,14 @@
+name: CraftShaftXray
+main: net.thecraftshaft.CraftShaftXray
+version: 1.0
+api-version: 1.13
+commands:
+  csxratio:
+    description: Get diamond to stone ratio of online player
+    usage: /csxratio <player>
+  csxtop:
+    description: Get the top 5 highest x-ray ratios of online players
+    usage: /csxtop
+  csxsetratio:
+    description: Set or get the ratio threshold
+    usage: /csxsetratio [ratio]

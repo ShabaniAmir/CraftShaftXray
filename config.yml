@@ -1,0 +1,8 @@
+ratio-threshold: 0.06
+
+# Permissions
+# craftshaft.xray.alert - Players with this permission receive an alert when a player is suspected of x-raying
+# craftshaft.xray.bypass - Players with this permission will not be monitored
+# craftshaft.xray.top - /csxtop - Get the top 5 highest x-ray ratios of online players
+# craftshaft.xray.ratio - /csxratio <player> - Get diamond to stone ratio of online player
+# craftshaft.xray.setratio - /csxsetratio [ratio] - Get or change the threshold ratio
