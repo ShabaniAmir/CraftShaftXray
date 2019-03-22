@@ -1,4 +1,4 @@
-CraftShaft X-Ray
+### CraftShaft X-Ray
 Source code on Github: https://github.com/ShabaniAmir/CraftShaftXray
 
 I struggled with finding a proper x-ray detecting plugin for my 1.13.2 server, so I decided to develop one.
