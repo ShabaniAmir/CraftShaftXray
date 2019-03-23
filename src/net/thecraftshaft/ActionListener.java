@@ -49,17 +49,18 @@ public class ActionListener implements Listener {
 
 		// Determine concern of plugin, ignore people with permission to bypass
 		if(event.getPlayer().hasPermission("craftshaft.xray.bypass") || event.getPlayer().getGameMode() == GameMode.CREATIVE) return;
-		if (event.getBlock().getBlockData().getMaterial().equals(Material.DIAMOND_ORE)
-				|| event.getBlock().getBlockData().getMaterial().equals(Material.STONE)) {
+		Bukkit.getLogger().info("ITEM BROKEN: " + "event.getBlock().getBlockData().getMaterial()" );
+		if (event.getBlock().getType().equals(Material.DIAMOND_ORE)
+				|| event.getBlock().getType().equals(Material.STONE)) {
 
 			Map<String, Integer> miningData = playerData.get(event.getPlayer().getName());
 			int diamondData = (int) miningData.get("diamond");
 			int stoneData = (int) miningData.get("stone");
 			// If block mined is diamond
-			if (event.getBlock().getBlockData().getMaterial().equals(Material.DIAMOND_ORE)) {
+			if (event.getBlock().getType().equals(Material.DIAMOND_ORE)) {
 				diamondData++;
 			} // If block mined is stone
-			else if (event.getBlock().getBlockData().getMaterial().equals(Material.STONE)) {
+			else if (event.getBlock().getType().equals(Material.STONE)) {
 				stoneData++;
 			}
 			miningData.put("diamond", diamondData);
