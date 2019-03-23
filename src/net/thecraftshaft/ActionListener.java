@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.event.EventHandler;
@@ -47,7 +48,7 @@ public class ActionListener implements Listener {
 	public void onBlockBreak(BlockBreakEvent event) {
 
 		// Determine concern of plugin, ignore people with permission to bypass
-		if(event.getPlayer().hasPermission("craftshaft.xray.bypass")) return;
+		if(event.getPlayer().hasPermission("craftshaft.xray.bypass") || event.getPlayer().getGameMode() == GameMode.CREATIVE) return;
 		if (event.getBlock().getBlockData().getMaterial().equals(Material.DIAMOND_ORE)
 				|| event.getBlock().getBlockData().getMaterial().equals(Material.STONE)) {
 
