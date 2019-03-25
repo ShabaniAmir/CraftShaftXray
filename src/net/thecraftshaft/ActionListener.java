@@ -30,8 +30,6 @@ public class ActionListener implements Listener {
 
 	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent event) {
-		Bukkit.broadcastMessage("Welcome " + event.getPlayer().getName() + " to the server!");
-
 		// Initialize Player Mining Data
 		Map<String, Integer> miningData = new HashMap<String, Integer>();
 		miningData.put("stone", 0);
@@ -49,7 +47,6 @@ public class ActionListener implements Listener {
 
 		// Determine concern of plugin, ignore people with permission to bypass
 		if(event.getPlayer().hasPermission("craftshaft.xray.bypass") || event.getPlayer().getGameMode() == GameMode.CREATIVE) return;
-		Bukkit.getLogger().info("ITEM BROKEN: " + "event.getBlock().getBlockData().getMaterial()" );
 		if (event.getBlock().getType().equals(Material.DIAMOND_ORE)
 				|| event.getBlock().getType().equals(Material.STONE)) {
 
