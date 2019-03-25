@@ -32,7 +32,7 @@ Every time a player breaks a stone block or a diamond ore, CraftShaft X-Ray reco
 **CraftShaft X-Ray automatically deletes it's records of players once they leave the game. It's very efficient and has low impact on servers. It was tested on a local server of a "not-so-good" laptop and it faired well.**
 
 ## Changes for next update:
-- [ ] Ignore players in creative
+- [x] ~Ignore players in creative~
 - [ ] Have settings for which blocks are most important, not just diamond_ore
 
 *Something you want to see here? contact me or submit a ticket*
