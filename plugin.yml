@@ -1,6 +1,6 @@
 name: CraftShaftXray
 main: net.thecraftshaft.CraftShaftXray
-version: 1.3
+version: 1.4
 api-version: 1.13
 commands:
   csxratio:

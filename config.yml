@@ -1,8 +1,32 @@
+# Do not use tabs in this file, only 4 spaces.
+
+# If the player's diamond to stone ratio is higher than this, an alert will be sent
 ratio-threshold: 0.06
 
-# Permissions
-# craftshaft.xray.alert - Players with this permission receive an alert when a player is suspected of x-raying
-# craftshaft.xray.bypass - Players with this permission will not be monitored
-# craftshaft.xray.top - /csxtop - Get the top 5 highest x-ray ratios of online players
-# craftshaft.xray.ratio - /csxratio <player> - Get diamond to stone ratio of online player
-# craftshaft.xray.setratio - /csxsetratio [ratio] - Get or change the threshold ratio
+# This is used to keep chat from being spammed for every block a player breaks. The number is seconds between each alert per player
+minimum-alert-delay: 30
+
+# Uncomment the settings below if you'd like to ignore specific worlds, such as prison worlds
+#ignore-worlds:
+#    - prison
+#    - spawn 
+
+# Disable log-to-console if you don't want warnings about XRayers to be sent to console
+log-to-console: true
+
+# Disable console-colors if you'd like messages sent to console to be in all-white
+console-colors: true
+
+# This section is for customization of messages (can be use for non-english servers)
+# These messages can only have the place holders they already contain. For example, ratio-threshold can't have {name}.
+messages:
+    prefix: "&4&l[XRAY]&r"
+    alert: "{prefix} &e {name} &6 is most likely using X-Ray. &r(Diamond to Stone Ratio: &c{ratio}&r)"
+    get-ratio: "{prefix} Current ratio threshold: {ratio}"
+    player-ratio: "{prefix} {name}'s ratio: {ratio}"
+
+error:   
+    permission: "&4You do not have permission to run this command"
+    not-ratio: "&cThe value you entered is not a ratio"
+    player-not-found: "Player not found"
+    

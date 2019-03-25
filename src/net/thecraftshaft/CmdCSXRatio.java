@@ -12,7 +12,7 @@ public class CmdCSXRatio implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		// Check permissions
 		if(!sender.hasPermission("craftshaft.xray.ratio")) {
-			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&4 You do not have permission to run this command"));
+			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', CraftShaftXray.config.getConfigurationSection("errors").getString("permission")));
 			return true;
 		}
 		
@@ -25,7 +25,7 @@ public class CmdCSXRatio implements CommandExecutor {
 			CraftShaftXray.displayRatioOfPlayer(sender, args[0], ratio);
 			return true;
 		}else {
-			sender.sendMessage("Player not found");
+			sender.sendMessage(CraftShaftXray.config.getConfigurationSection("errors").getString("player-not-found"));
 		}
 		return true;
 		

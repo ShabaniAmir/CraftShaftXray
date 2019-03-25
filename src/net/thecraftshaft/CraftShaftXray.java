@@ -10,9 +10,10 @@ import net.md_5.bungee.api.ChatColor;
 public class CraftShaftXray extends JavaPlugin{
 	public static String prefix;
 	public static FileConfiguration config;
+
 	@Override
 	public void onEnable() {
-		this.prefix = ChatColor.translateAlternateColorCodes('&', "&4&l[XRAY]&r ");
+		this.prefix = ChatColor.translateAlternateColorCodes('&', this.getConfig().getConfigurationSection("messages").getString("prefix"));
 		this.config = this.getConfig();
 		
 		this.saveDefaultConfig();
@@ -29,6 +30,8 @@ public class CraftShaftXray extends JavaPlugin{
 		
 	}
 	
+	// This is called with the /csxtop and /csxratio command
+	// It's different that ActionListener.sendAlert and ActionListener.calculateRatio because it's a mix of both.
 	public static boolean displayRatioOfPlayer(CommandSender sender, String playerName, double ratio) {
 		String strRatio;
 		if (ratio > CraftShaftXray.config.getDouble("ratio-threshold")) {
@@ -36,7 +39,11 @@ public class CraftShaftXray extends JavaPlugin{
 		}else {
 			strRatio = ChatColor.translateAlternateColorCodes('&', String.format("&r%.2f&r", ratio));
 		}
-		sender.sendMessage(CraftShaftXray.prefix + playerName + "'s ratio is " + strRatio);
+		String message = config.getConfigurationSection("messages").getString("player-ratio");
+		message = message.replaceAll("\\{name\\}", playerName);
+		message = message.replaceAll("\\{ratio\\}", strRatio);
+		message = message.replaceAll("\\{prefix\\}", CraftShaftXray.prefix);
+		sender.sendMessage(message);
 		return true;
 	}
 	

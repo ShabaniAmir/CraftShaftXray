@@ -3,12 +3,10 @@ package net.thecraftshaft;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -22,7 +20,7 @@ public class CmdCSXTop implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		// Check permissions
 		if(!sender.hasPermission("craftshaft.xray.top")) {
-			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&4 You do not have permission to run this command"));
+			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', CraftShaftXray.config.getConfigurationSection("errors").getString("permission")));
 			return true;
 		}
 

@@ -18,7 +18,7 @@ public class CmdCSXSetRatio implements CommandExecutor{
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 		if(!sender.hasPermission("craftshaft.xray.setratio")) {
-			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&4 You do not have permission to run this command"));
+			sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getConfigurationSection("errors").getString("permission")));
 			return true;
 		}
 		
@@ -28,14 +28,17 @@ public class CmdCSXSetRatio implements CommandExecutor{
 			try {
 				newRatio = Double.parseDouble(args[0]);
 			} catch (NumberFormatException e) {
-				sender.sendMessage(ChatColor.translateAlternateColorCodes('&', "&cThe value you entered is not a ratio"));
+				sender.sendMessage(ChatColor.translateAlternateColorCodes('&', plugin.getConfig().getConfigurationSection("errors").getString("not-ratio")));
 				return false;
 			}
 			CraftShaftXray.config.set("ratio-threshold", newRatio);
 			this.plugin.saveConfig();
 			
 		}
-		sender.sendMessage("Current ratio threshold: " + CraftShaftXray.config.getDouble("ratio-threshold"));
+		String message = plugin.getConfig().getConfigurationSection("messages").getString("get-ratio");
+		message = message.replaceAll("\\{prefix\\}", CraftShaftXray.prefix);
+		message = message.replaceAll("\\{ratio\\}", String.valueOf(CraftShaftXray.config.getDouble("ratio-threshold")));
+		sender.sendMessage(message);
 		
 		return true;
 	}
